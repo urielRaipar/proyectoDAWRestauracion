@@ -1,0 +1,110 @@
+.cabecera{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    margin-bottom: 30rem;
+}
+
+li{
+    background-color: #FFFFE0;
+}
+
+.listaAux{
+    display: flex;
+    justify-content: space-between;
+}
+
+.botoneraP button{
+    margin-right: 2rem;
+}
+
+.botoneraS button{
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
+
+/* Breakpoints*/
+@media screen and (max-width: 744px) {
+    .cabecera{
+        flex-direction: column;
+    }
+
+    .cabecera div{
+        margin-bottom: 5rem;
+    }
+
+    .listaCanciones{
+        margin-bottom: 22rem;
+    }
+}
+
+
+@media screen and (max-width: 544px) {
+    .botoneraP button{
+        margin-right: 1rem;
+    }
+
+    .botoneraS button{
+        margin-right: 1rem;
+    }
+    
+}
+
+@media screen and (max-width: 493px) {
+    span{
+        font-size: 18px;
+    }
+
+    .botoneraP button{
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+    .botoneraS button{
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+    .listaAux{
+        justify-content:center;
+        margin-left: 1rem;
+        width: 20rem;
+    }
+
+    .listaAux div{
+        margin-right: 2rem;
+    }
+ 
+    .listaCanciones{
+        margin-left: 2rem;
+    } 
+}   
+
+@media screen and (max-width: 400px) {
+    .listaAux div{
+        margin-right: 1rem;
+    }
+ 
+    .listaCanciones{
+        margin-left: 1rem;
+    } 
+
+}
+
+@media screen and (max-width: 375px) {
+    .listaAux div{
+        margin-right: 0;
+        margin-left: 3px;
+    }
+ 
+    .listaCanciones{
+        margin-left: 0;
+        margin-left: 3px;
+    } 
+
+    .listaAux{
+        justify-content:flex-start;
+        width: 20rem;
+    }
+}

@@ -1,0 +1,58 @@
+<div class="listArtistas">
+    <div class="divSuperior">
+        <h2>¡Bienvenido!</h2>
+        <h1>{{titulo}}</h1>
+        <div class="botoneraListaA">
+            <!-- Boton crear artista -->
+            @if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+                <button class="btn btn-warning" [routerLink]="['/anyadirArtista']" [routerLinkActive]="['actived']">Crear artista</button><br><br>
+            }
+    
+            <ul class="botonesLista">
+                <li><button class="btn btn-primary" [routerLink]="['/artists',prev_page]"><i class="bi bi-caret-left-fill"></i></button></li>
+                <li><button class="btn btn-primary" [routerLink]="['/artists',next_page]"><i class="bi bi-caret-right-fill"></i></button></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Lista de artistas-->
+    <div class="componenteArtista">
+        @if(identificacion){
+            <ul>
+                @for(artista of artistas; track artista._id){
+                    <li>
+                        <div class="card fichas" style="width: 17rem;">
+                            <img class="card-img-top" src="{{url + 'get-image-artist/' + artista.imagen}}" alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title">
+                                <a [routerLink]="['/artista',artista._id]">
+                                    {{artista.nombre}}
+                                </a>
+                            </h5>
+                            <p class="card-text">{{artista.descripcion}}</p>
+                                    <!-- Borrar artista -->
+                                    @if(identificacion.rol=='ROLE_ADMIN'){
+                                        <div class="botonera">
+                                            <button class="btn btn-warning" [routerLink]="['/editarArtista',artista._id]">Editar</button>
+                                            <button class="btn btn-danger" (click)="onDeleteConfirm(artista._id)">Borrar</button>
+                                        </div>
+                                    }
+
+                                    <!-- Confirmacion eliminacion -->
+                                    @if(confirmado==artista._id){
+                                        <div class="botonera2">
+                                            <hr>
+                                            <button class="btn btn-danger"  (click)="onDeleteArtist(artista._id)">Eliminar</button>
+                                            <button class="btn btn-warning" (click)="onCancelArtist()">Cancelar</button>
+                                        </div>
+                                    }
+                            </div>
+                          </div>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>
+

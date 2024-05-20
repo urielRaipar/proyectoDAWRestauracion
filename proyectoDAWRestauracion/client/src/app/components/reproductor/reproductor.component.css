@@ -1,0 +1,63 @@
+.reproductorGeneral{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: grey;
+    width: 100%;
+    padding: 2rem 5rem;
+    margin-top: 35rem;
+    margin-bottom: 2rem;
+    border-radius: 5rem;
+}
+
+.reproductorGeneral img{
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+
+.datosReproductor p{
+    font-weight: bold;
+}
+
+#cancion_sonando{
+    font-weight: bold;
+}
+
+#artista_sonando{
+    font-weight: bold;
+}
+
+/* Breakpoint */
+@media screen and (max-width: 912px) {
+    .reproductorGeneral{
+        padding: 1rem 1rem;
+    }
+
+    .reproductorGeneral img{
+        height: 100px;
+        width: 80px;
+        padding: 0;
+        margin: 1rem 1rem;
+        flex-direction: row-reverse;
+    }
+}
+
+@media screen and (max-width: 744px) {
+    .reproductorGeneral{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 744px) {
+    .reproductorGeneral{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 494px) {
+    .reproductorGeneral{
+        background-color: white;
+    }
+
+}
+

@@ -1,0 +1,57 @@
+.actualizarCancion{
+    background-color: #FFFFE0;
+    padding: 2rem 2rem;
+    margin: 12rem 4rem;
+    width: 80%;
+}
+
+form{
+    display: block;
+    justify-content: center;
+}
+
+input{
+    width: 80%;
+}
+
+textarea{
+    width: 80%;
+}
+
+.aster{
+    color: red;
+  }
+
+
+  /* Breakpoints */
+@media screen and (max-width: 658px) {
+    .actualizarCancion{
+        margin: 12rem 2rem;
+        padding: 2rem 1rem;
+    }
+
+    form audio{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .actualizarCancion{
+        /* margin: 12rem 18px;*/
+        padding:10px; 
+        margin-left:2rem;
+        width: 90%;
+    }
+
+    input{
+        width: 90%;
+    }
+
+    textarea{
+        width: 90%;
+    }
+
+    form audio{
+        width: 80%;
+    }
+}

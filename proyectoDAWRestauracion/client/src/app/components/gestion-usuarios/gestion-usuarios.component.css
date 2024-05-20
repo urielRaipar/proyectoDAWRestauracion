@@ -1,0 +1,33 @@
+.gestionU{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFE0;
+    padding: 2rem 2rem;
+    margin-top: 25rem;
+    margin-bottom: 15rem;
+}
+
+.gestionU h1{
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.botonera{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* Breakpoints */
+@media screen and (max-width: 500px) {
+    .gestionU{
+        margin: 25rem auto 15rem 4rem;
+    }
+}
+
+@media screen and (max-width: 509px) {
+    .botonera button{
+        margin-bottom: 1rem;
+    }
+}
+

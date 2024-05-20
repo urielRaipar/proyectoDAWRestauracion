@@ -1,0 +1,55 @@
+@if(artista){
+    <div>
+        <div class="cabeceraArt">
+            <!-- Cabecera -->
+            <div>
+                @if(artista.imagen && artista.imagen!==null){
+                    <img src="{{url + 'get-image-artist/' + artista.imagen}}" style="width: 10rem;">
+                }
+            </div>
+            <div>
+                <h1>{{artista.nombre}}</h1>
+            </div>
+            @if(identificacion.rol=='ROLE_ADMIN'){
+                <div>
+                    <button type="button" class="btn btn-warning" [routerLink]="['/crearAlbum',artista._id]">Añadir album</button>
+                </div>
+            }
+        </div>
+        <br>
+        @if(albums){
+            <div class="listarAlbunes">
+                <!-- Listar albums -->
+                <ul>
+                    @for(album of albums;track album._id){
+                        <li>
+                            <div class="card fichas" style="width: 17rem;">
+                                <img class="card-img-top" src="{{url+'get-image-album/'+album.imagen}}" alt="Card image cap">
+                                <div class="card-body">
+                                  <h5 class="card-title"><a [routerLink]="['/album',album._id]">{{album.titulo}}</a></h5>
+                                  <p class="card-text">{{album.descripcion}}</p>
+                                   <!-- Borrar album -->
+                                    @if(identificacion.rol=='ROLE_ADMIN'){
+                                        <div class="botonera">
+                                            <button type="button" class="btn btn-warning" [routerLink]="['/actualizarAlbum',album._id]">Editar</button>
+                                            <button type="button" class="btn btn-danger" (click)="onDeleteConfirm(album._id)">Borrar</button>
+                                        </div>
+                                    }
+                                    <!-- Confirmacion eliminacion -->
+                                    @if(confirmado==album._id){
+                                        <div class="botonera2">
+                                            <hr>
+                                            <button type="button" class="btn btn-danger" (click)="onDeleteAlbum(album._id)">Eliminar</button>
+                                            <button type="button" class="btn btn-warning" (click)="onCancelAlbum()">Cancelar</button>
+                                        </div>
+                                    }
+                                </div>
+                              </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+}
+

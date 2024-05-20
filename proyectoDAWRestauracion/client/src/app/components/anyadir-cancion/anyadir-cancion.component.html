@@ -1,0 +1,41 @@
+@if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+    <div class="principalCCancion">
+        <h1>{{title}}</h1>
+        @if(alertMessage){
+            <div class="alert alert-warning" role="alert">
+                {{alertMessage}}
+            </div>
+        }
+        @if(rellenar){
+            <div class="alert alert-danger" role="alert">
+                {{rellenar}}
+            </div>
+        }
+        <form #formSong="ngForm" (ngSubmit)="onSubmit()">
+
+            <div class="mb-3">
+                <label for="numero" class="form-label">Numero</label>
+                <input type="number" class="form-control" id="numero" aria-describedby="emailHelp" #numero="ngModel" name="numero" [(ngModel)]="cancion.numero" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="titulo" aria-describedby="emailHelp" #nombre="ngModel" name="nombre" [(ngModel)]="cancion.nombre" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="duracion" class="form-label">Duración</label>
+                <input type="text" class="form-control" id="duracion" aria-describedby="emailHelp" #duracion="ngModel" [(ngModel)]="cancion.duracion" name="duracion" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Añadir nueva canción</button>
+        </form>
+    </div>
+}@else{
+    <div class="alert alert-danger" role="alert">
+        <span><b>Error </b></span><p>No tienes acceso a esta parte de la aplicación</p>
+    </div> 
+}    

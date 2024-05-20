@@ -1,0 +1,51 @@
+<div class="divFormuRegist">
+    <div class="formuRegist">
+        <h1>Registrate</h1><br><br>
+        @if(alertRegister){
+            <div class="alert alert-success" role="alert">
+                {{alertRegister}}
+            </div>
+        }
+        @if(rellenar){
+            <div class="alert alert-danger" role="alert">
+                {{rellenar}}
+            </div>
+        }
+        <form #registerForm="ngForm" (ngSubmit)="onSubmitRegister()">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" #nombre="ngModel" name='nombre' [(ngModel)]="usuario_registro.nombre" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+                @if(!nombre.valid && nombre.touched){
+                    <span>El nombre es obligatorio</span>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" aria-describedby="emailHelp" #apellidos="ngModel" name='apellidos' [(ngModel)]="usuario_registro.apellidos" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+                @if(!apellidos.valid && apellidos.touched){
+                    <span>Los apellidos son obligatorios</span>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" #email="ngModel" name='email' [(ngModel)]="usuario_registro.email" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+                @if(!email.valid && email.touched){
+                    <span>El email es obligatorio</span>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="contrasenya" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contrasenya" aria-describedby="emailHelp" #contrasenya="ngModel" name='contrasenya' [(ngModel)]="usuario_registro.contrasenya" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+                @if(!contrasenya.valid && contrasenya.touched){
+                    <span>La contraseña es obligatoria</span>
+                }
+            </div>
+            <button type="submit" class="btn btn-success">Registrarse</button>
+        </form>
+    </div>
+</div>
+

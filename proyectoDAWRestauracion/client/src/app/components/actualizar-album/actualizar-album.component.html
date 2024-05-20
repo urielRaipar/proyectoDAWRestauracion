@@ -1,0 +1,51 @@
+@if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+    <div class="principalAAlbum">
+        <h1>{{title}}</h1>
+        @if(alertMessage){
+            <div class="alert alert-warning" role="alert">
+                {{alertMessage}}
+            </div>
+        }
+        @if(rellenar){
+            <div class="alert alert-danger" role="alert">
+                {{rellenar}}
+            </div>
+        }
+        <form #formAlbum="ngForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="titulo" aria-describedby="emailHelp" #titulo="ngModel" name="titulo" [(ngModel)]="album.titulo" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="descripcion" style="height: 100px" #descripcion="ngModel" [(ngModel)]="album.descripcion" name="descripcion" id="descripcion" required></textarea>
+                <label for="descripcion">Descripción</label>
+            </div> <br>
+
+
+            <div class="mb-3">
+                <label for="anyo" class="form-label">Año</label>
+                <input type="number" class="form-control" id="anyo" aria-describedby="emailHelp" #anyo="ngModel" name="anyo" [(ngModel)]="album.anyo" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+         
+            @if(album.imagen && album.imagen!=null){
+                <div>
+                    <img src="{{url+'get-image-album/'+album.imagen}}" style="width: 10rem;">
+                </div><br><br>
+            }
+        
+            <div class="mb-3">
+                <label for="subirImagen" class="form-label">Subir imagen album</label>
+                <input class="form-control" type="file" id="subirImagen" placeholder="Selecciona imagen..." (change)="fileChangeEvent($event)">
+            </div><br>
+
+            <button type="submit" class="btn btn-success">Actualizar album</button>
+        </form>
+    </div>
+}@else{
+    <div class="alert alert-danger" role="alert">
+        <span>Error </span>No tienes acceso a esta parte de la aplicación
+    </div>
+}

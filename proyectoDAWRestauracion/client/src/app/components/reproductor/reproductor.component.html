@@ -1,0 +1,28 @@
+<div class="reproductorGeneral"> 
+    @if(cancion.album){
+        <span>
+            <img id="play-image-album" src="{{url+'get-image-album/'+cancion.album.imagen}}" style="width: 10rem;">
+        </span>
+    }@else{
+        <span>
+            <img id="play-image-album" src="../../../assets/imagenes/defecto.jpg" style="width: 10rem;">
+        </span>
+    } 
+
+    <div class="datosReproductor">
+        <p class="h4">Reproduciendo</p>
+        <!-- Cancion sonando -->
+        <span id="cancion_sonando">
+            <i class="bi bi-file-earmark-music"> {{cancion.nombre}}</i> 
+        </span>
+       <!-- Artista -->
+        <span id="artista_sonando">
+            /  <i class="bi bi-mic-fill"> {{cancion.album.artista.nombre}}</i>
+        </span><br>
+    
+        <audio controls id="player">
+            <source src="{{url+'get-fichero-audio/'+cancion.ficheroMP3}}" type="audio/mpeg" id="mp3-source"/>
+            El navegador web no soporta la reproducción de audio
+        </audio>
+    </div>
+</div>

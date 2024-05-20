@@ -1,0 +1,51 @@
+@if(album){
+    <div>
+        <div class="cabecera">
+            <div>
+                @if(album.imagen && album.imagen!==null){
+                    <img src="{{url+'get-image-album/'+album.imagen}}" style="width: 10rem;">
+                }
+                <h1>{{album.titulo}}</h1>
+            </div>
+            <div>
+                <h1><b>{{album.artista.nombre}}</b></h1>
+            </div>
+            <div>
+                @if(identificacion.rol=='ROLE_ADMIN'){
+                    <button type="button" class="btn btn-warning" [routerLink]="['/anyadirCancion',album._id]">Añadir cancion</button>
+                }
+            </div>
+        </div>
+        <!-- Listar canciones -->
+        @if(canciones){
+            <div class="listaCanciones">
+                <ul class="list-group">
+                    @for(cancion of canciones;track cancion._id){
+                        <li class="list-group-item listaAux">
+                            <div>
+                                <button type="button" class="btn btn-success" (click)="startPlayer(cancion)"><i class="bi bi-play"></i></button>
+                            </div>
+                            <div>
+                              <span class="h3">{{cancion.numero}}.- </span><span class="h2">{{cancion.nombre}} </span><span class="h3">/ {{cancion.duracion}}</span>
+                            </div>
+                            <div>     
+                                @if(identificacion.rol=='ROLE_ADMIN'){
+                                    <div class="botoneraP">
+                                        <button type="button" class="btn btn-warning" [routerLink]="['/actualizarCancion',cancion._id]"><i class="bi bi-pencil-square"></i></button>
+                                        <button type="button" class="btn btn-danger" (click)="onDeleteConfirm(cancion._id)"><i class="bi bi-trash"></i></button>
+                                    </div>
+                                }
+                                @if(confirmado==cancion._id){
+                                    <div class="botoneraS">
+                                        <button type="button" class="btn btn-info" (click)="onDeleteSong(cancion._id)"><i class="bi bi-check"></i></button>
+                                        <button type="button" class="btn btn-info" (click)="onCancelSong()"><i class="bi bi-x"></i></button>
+                                    </div>
+                                }
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+}

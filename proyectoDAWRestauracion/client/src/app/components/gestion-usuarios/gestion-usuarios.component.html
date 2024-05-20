@@ -1,0 +1,29 @@
+@if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+    <div class="gestionU">
+        <div>
+            <h1>Eliminar usuario</h1>
+            @if(alertMessage){
+                <div class="alert alert-warning" role="alert">
+                    {{alertMessage}}
+                </div>
+            }
+        </div>
+        <div>
+            <select class="form-select" name="usuario" aria-label="Default select example" [(ngModel)]="usuarioSeleccionado">
+                <option selected>--Selecciona un usuario--</option>
+                @for(usuario of usuarios; track usuario._id){
+                    <option value="{{usuario._id}}">{{usuario.nombre}}</option>
+                }
+            </select>
+            <br><br>
+            <div class="botonera">
+                <button (click)="borrarU()" class="btn btn-danger btn-lg"><i class="bi bi-trash3-fill"></i></button>
+                <button (click)="asignarAdmin()" class="btn btn-warning btn-lg">Designar administrador</button>
+            </div>
+        </div>
+    </div>
+}@else{
+    <div class="alert alert-danger" role="alert">
+        <span><b>Error </b></span><p>No tienes acceso a esta parte de la aplicación</p>
+    </div> 
+}  

@@ -1,0 +1,61 @@
+.actualizarMisDatos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.actualizarMisDatos h1{
+    font-weight: bold;
+}
+
+.formuUpdate{
+    background-color: #FFFFE0;
+    border-radius: 2rem;
+    padding: 4rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.actualizarMisDatos img{
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.formuUpdate label{
+    font-weight: bold;
+}
+
+.formuUpdate  input{
+    width: 25rem;
+  }
+
+.aster{
+    color: red;
+}
+  
+
+@media screen and (max-width: 534px) {
+    .actualizarMisDatos{
+        margin-left: 4rem;
+    }
+
+    .formuUpdate{
+        padding: 4rem 2rem;
+        margin-left: 2rem;
+    }
+
+    .formuUpdate  input{
+        width: 20rem;
+      }
+}
+
+
+@media screen and (max-width: 374px) {
+    .formuUpdate  input{
+        width: 15rem;
+      }
+}

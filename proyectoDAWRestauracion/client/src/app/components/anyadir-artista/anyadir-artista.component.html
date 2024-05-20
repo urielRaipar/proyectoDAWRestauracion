@@ -1,0 +1,34 @@
+@if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+    <div class="principalCArtist">
+        <h1>{{titulo}}</h1>
+        @if(alertMessage){
+            <div class="alert alert-warning" role="alert">
+                {{alertMessage}}
+            </div>
+        }
+        @if(rellenar){
+            <div class="alert alert-danger" role="alert">
+                {{rellenar}}
+            </div>
+        }
+        <form #formArtista="ngForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" #nombre="ngModel" name='nombre' [(ngModel)]="artista.nombre" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="descripcion" style="height: 100px" #descripcion="ngModel" [(ngModel)]="artista.descripcion" name="descripcion" required></textarea>
+                <label for="descripcion">Descripción</label>
+            </div> <br>
+        
+            <button type="submit" class="btn btn-success">Crear nuevo artista</button>
+        </form>
+    </div>
+}@else{
+    <div class="alert alert-danger" role="alert">
+        <span><b>Error </b></span><p>No tienes acceso a esta parte de la aplicación</p>
+    </div> 
+}
+

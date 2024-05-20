@@ -1,0 +1,50 @@
+.principalAArtista{
+    display: block;
+    justify-content: center;
+    background-color: #FFFFE0;
+    padding: 3rem 3rem;
+    margin: 12rem 4rem;
+}
+
+input{
+    width: 80%;
+}
+
+label{
+    font-weight: bold;
+}
+
+textarea{
+    width: 80%;
+}
+
+
+.aster{
+    color: red;
+  }
+
+
+/* Breakpoints */
+@media screen and (max-width: 658px) {
+    .principalAArtista{
+        margin: 12rem 2rem;
+        padding: 2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .principalAArtista{
+        /* margin: 12rem 18px;*/
+        padding:10px; 
+        margin-left:2rem;
+        width: 90%;
+    }
+
+    input{
+        width: 90%;
+    }
+
+    textarea{
+        width: 90%;
+    }
+}

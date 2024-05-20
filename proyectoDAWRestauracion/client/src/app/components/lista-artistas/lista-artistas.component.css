@@ -1,0 +1,90 @@
+.listaArtistas{
+    display: flex;
+    flex-direction: column;
+}
+
+.componenteArtista{
+    display: flex;
+}
+
+.botonesLista{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin:2rem 2rem;
+}
+
+.componenteArtista ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.componenteArtista img{
+    max-height: 15rem;
+    min-height: 15rem;
+}
+
+.botonesLista li{
+    width: 70px;
+    height: 70px;
+}
+
+.listArtistas h1,h2{
+    font-weight: bold;
+    margin:2rem 2rem;
+}
+
+.fichas{
+  height: 70%;
+  width: 100%;
+  margin: 4rem 3rem;
+  padding-bottom: 2rem;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+}
+
+.fichas img{
+    height: 70%;
+}
+
+.botonera button{
+    margin:1rem 1rem 4rem 1rem;
+} 
+
+h1,h2{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.botonera2{
+    margin-bottom: 8rem ;
+}
+
+.botonera2 button{
+    margin: 1rem 1rem;
+} 
+
+/* Breakpoints */
+@media screen and (max-width: 498px) {
+    .divSuperior{
+        margin-left: 3rem;
+    }
+    .fichas{
+        margin: 3rem 1rem;
+    }
+}
+
+@media screen and (max-width: 354px) {
+    .fichas img{
+        height: 50%;
+    }
+
+    .fichas{
+        width: 70%;
+        margin: 2rem 0rem;
+        margin-right: 8px;
+    }
+}
+

@@ -1,0 +1,47 @@
+@if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+<div class="principalAArtista">
+    <h1>{{titulo}}</h1>
+    @if(alertMessage){
+        <div class="alert alert-warning" role="alert">
+            {{alertMessage}}
+        </div>
+    }
+    @if(rellenar){
+        <div class="alert alert-danger" role="alert">
+            {{rellenar}}
+        </div>
+    }
+    <form #formArtista="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" #nombre="ngModel" name='nombre' [(ngModel)]="artista.nombre" required>
+            <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="descripcion" style="height: 100px" #descripcion="ngModel" [(ngModel)]="artista.descripcion" name="descripcion" required></textarea>
+            <label for="descripcion">Descripción</label>
+        </div> <br>
+
+
+        @if(artista.imagen && artista.imagen!=null){
+            <div>
+                <img src="{{url+'get-image-artist/'+artista.imagen}}" style="width: 10rem;">
+            </div><br><br>
+        }
+
+        <div class="mb-3">
+            <label for="subirImagen" class="form-label">Subir imagen artista</label>
+            <input class="form-control" type="file" id="subirImagen" placeholder="Selecciona imagen..." (change)="fileChangeEvent($event)">
+        </div><br>
+        
+
+        <button type="submit" class="btn btn-success">Actualizar artista</button>
+    </form>
+</div>
+}@else{
+    <div class="alert alert-danger" role="alert">
+        <span>Error </span>No tienes acceso a esta parte de la aplicación
+    </div>
+}
+

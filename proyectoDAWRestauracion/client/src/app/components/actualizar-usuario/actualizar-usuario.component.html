@@ -1,0 +1,72 @@
+<div class="actualizarMisDatos">
+    <div>
+        <h1>{{titulo}}</h1>
+        @if(alertUpdate){
+            <div class="alert alert-warning" role="alert">
+                {{alertUpdate}}
+            </div>
+        }
+        @if(rellenar){
+            <div class="alert alert-danger" role="alert">
+                {{rellenar}}
+            </div>
+        }
+        <!-- Formulario -->
+        <form #userUpdateForm="ngForm" (ngSubmit)="onSubmit()" class="formuUpdate">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" #nombre="ngModel" name='nombre' [(ngModel)]="usuario.nombre" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" aria-describedby="emailHelp" #apellidos="ngModel" name='apellidos' [(ngModel)]="usuario.apellidos" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" #email="ngModel" name='email' [(ngModel)]="usuario.email" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div><br>
+
+            
+            <!-- Futuro campo de subir fichero -->
+            @if(usuario.imagen && usuario.imagen!=null){
+                <div>
+                    <p>Foto perfil</p>
+                    <img src="{{url + '/get-image-user/' + usuario.imagen}}" style="width: 10rem;">
+                </div>
+            }
+        
+            <br>
+            <div class="mb-3">
+                <label for="foto_usuario" class="form-label">Sube tu foto</label>
+                <input class="form-control" type="file" id="foto_usuario" placeholder="Subir imagen..." (change)="fileChangeEvent($event)">
+            </div><br>
+
+            <button type="submit" class="btn btn-success">Actualizar mis datos</button>
+        </form>
+    </div>
+    <br><br>
+    <div>
+        <h1>Cambiar contraseña</h1>
+        @if(rellenarPass){
+            <div class="alert alert-danger" role="alert">
+                {{rellenarPass}}
+            </div>
+        }
+        <form #userUpdateForm="ngForm" (ngSubmit)="actualizarPass()" class="formuUpdate">
+            <div class="mb-3">
+                <label for="contrasenya" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasenya" aria-describedby="emailHelp" #contrasenya="ngModel" value="Valide su contraseña" name='contrasenya' [(ngModel)]="usuario.contrasenya" required>
+                <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+            </div> 
+            <br>
+            <button type="submit" class="btn btn-success">Actualizar contraseña</button>
+        </form>
+    </div>
+</div>
+
+

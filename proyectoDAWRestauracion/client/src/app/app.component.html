@@ -1,0 +1,131 @@
+<div class="principal">
+    @if(identificacion){
+        <!-- Navegador responsive -->
+        <div class="navegadorResponsive">
+            <div class="dropdown">
+                <button class="btn btn-secondary btn btn-warning" id="botonHamburger" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-list"></i>
+                </button>
+                <ul class="dropdown-menu bg-success">
+                  <li><a class="dropdown-item " [routerLink]="['/artists',1]"><i class="bi bi-music-note-list h3"> Artistas</i></a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/albums',1]"><i class="bi bi-book-half h3"> Albums</i></a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/misDatos']"><i class="bi bi-gear-fill h3"> {{identificacion.nombre}}</i></a></li>
+                  @if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+                    <li><a class="dropdown-item" [routerLink]="['/gestionU']" [routerLinkActive]="['actived']"><i class="bi bi-person-vcard h3"> Gestión usuarios</i></a></li>
+                    }
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item bg-danger" (click)="logout()"><i class="bi bi-box-arrow-left"> Cerrar sesión</i></a></li>
+                </ul>
+            </div>
+            <div class="imagenNavR">
+                <img  id="imagen_usuario" src="{{url + '/get-image-user/' + identificacion.imagen}}" style="width: 5rem;">
+            </div>
+        </div>
+        <!-- Navegador -->
+        <div class="navegador">
+            <div class="h1 tituloPrincipal bg-dark">
+                <a class="text-warning" [routerLink]="['/']" id="enlacePrincipal">
+                    {{title}}
+                </a>
+            </div>
+            <div class="enlacesPrincipales">
+                    <!-- Enlaces a contenido -->
+                <div>
+                    <a  [routerLink]="['/artists',1]" [routerLinkActive]="['actived']"><i class="bi bi-music-note-list h3"> Artistas</i></a><br><br>
+                    <a  [routerLink]="['/albums',1]" [routerLinkActive]="['actived']"><i class="bi bi-book-half h3"> Albums</i></a><br><br>
+                </div>
+                <!-- Imagen usuario -->
+                <div>
+                    <img  id="imagen_usuario" src="{{url + '/get-image-user/' + identificacion.imagen}}" style="width: 10rem;">
+                </div><br>
+                <!-- Nombre usuario -->
+                <span class="h4" id="nombre_usuario">
+                    <!-- Mis datos -->
+                    <a [routerLink]="['/misDatos']" [routerLinkActive]="['actived']"> 
+                        <i class="bi bi-gear-fill h3"> {{identificacion.nombre}}</i>
+                    </a>
+                    <!-- Gestion usuarios -->
+                    @if(identificacion && identificacion.rol=='ROLE_ADMIN'){
+                        <br><br>
+                        <a [routerLink]="['/gestionU']" [routerLinkActive]="['actived']"> 
+                            <i class="bi bi-person-vcard h3"> Gestión usuarios</i>
+                        </a>
+                    }
+                </span>
+            </div>
+            
+            <div class="misDatos">
+                <!-- Cerrar sesion -->
+                <button type="button" class="btn btn-warning" (click)="logout()"><b>Cerrar sesión</b></button>
+            </div>
+        </div> 
+    }
+
+    @if(identificacion){
+        <div class="contenido">
+            <!-- Carga de elementos -->
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+            <div>
+                <!-- Reproductor de musica -->
+                <app-reproductor></app-reproductor>
+            </div>
+        </div>
+    } 
+    <div></div>
+</div>
+
+
+@if(!identificacion){
+    <div class="titulo_inicio">
+        <h1>Spotysmall</h1>
+    </div>
+    <div class="formularios">
+        <div class="formuIdent">
+            <h1>Identificate</h1><br><br>
+            @if(errorMessage){
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error- </strong>{{errorMessage}}
+                </div>    
+            }
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="usuario" aria-describedby="emailHelp" #email="ngModel" name='email' [(ngModel)]="usuario.email" required>
+                    <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+                    @if(!email.valid && email.touched){
+                        <span>El email es obligatorio</span>
+                    }
+                </div>
+                <div class="mb-3">
+                    <label for="contrasenya" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasenya" #contrasenya="ngModel" name='contrasenya' [(ngModel)]="usuario.contrasenya" required>
+                    <div id="emailHelp" class="form-text">Campo obligatorio<span class="aster">*</span></div>
+                    @if(!contrasenya.valid && contrasenya.touched){
+                        <span>La contrasenya es obligatoria</span>
+                    }
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>  
+        </div>
+        <app-registro/>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

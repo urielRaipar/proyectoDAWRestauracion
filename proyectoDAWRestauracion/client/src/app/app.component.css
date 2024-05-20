@@ -1,0 +1,227 @@
+/* General */
+/* .principal{
+  height: 100rem;
+} */
+
+/* Login */
+.formularios{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10rem auto;
+  padding: 1px 1px;
+  flex-wrap: wrap;
+}
+
+.formuIdent{
+  border-radius: 12px;
+  padding: 5rem 5rem;
+  background-color: #FFFFE0;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }
+
+  .formuIdent input{
+    width: 25rem;
+  }
+
+  .actived{
+    border-bottom: 4px solid green;
+  }
+
+  .aster{
+    color: red;
+  }
+
+  label{
+    font-weight: bold;
+  }
+
+  .titulo_inicio{
+    background-color: #90EE90;
+  }
+
+  .titulo_inicio h1{
+    padding: 1rem 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+  }
+
+/* Breakpoints login */
+  @media screen and (max-width: 1125px) {
+    .formularios{ 
+      display: block;
+    }
+  
+    .formuIdent{
+      margin: 4rem 10rem;
+    }
+
+    .formuIdent input{
+      max-width: 100%;
+    }
+
+  }
+
+  @media screen and (max-width: 658px) {
+    .formuIdent{
+      margin: 4rem 5rem;
+    }
+  }
+
+
+  @media screen and (max-width: 425px) {
+    .formuIdent{
+      margin: 4rem 2rem;
+    }
+  }
+
+
+/* Logueado */
+.principal{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Barra de navegacion oculta */
+.navegadorResponsive{
+  background-color: #90EE90;
+  display: none;
+}
+
+.navegadorResponsive button{
+  margin-top: 2rem;
+  height: 60px;
+  width: 60px;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+}
+
+#botonHamburger i{
+  font-size: 2em;
+}
+
+/* Barra de navegacion */
+.navegador{
+  background-color: #90EE90;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tituloPrincipal{
+  padding: 1rem 1rem;
+  border-radius: 4rem;
+}
+
+.tituloPrincipal a{
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+} 
+
+.tituloPrincipal a:hover {
+  text-decoration: underline; 
+  color: #FFFFE0;
+  text-decoration: none;
+}
+
+/* Enlaces */
+.enlacesPrincipales a{
+  text-decoration: none;
+  font-weight: bold;
+  color: blue;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.enlacesPrincipales a:hover {
+  text-decoration: underline; 
+  color: #FFFFE0;
+  text-decoration: none;
+}
+
+.enlacesPrincipales{
+  margin-left: 2rem;
+}
+
+#imagen_usuario{
+  margin-top: 2rem;
+  border-radius: 2rem;
+  padding: 1rem 1rem;
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px -6px rgba(0,0,0,0.75);
+  background-color: #FFFFE0;
+}
+
+#nombre_usuario a{
+  font-weight: bold;
+  text-decoration: none;
+  color: blue;
+}
+
+#nombre_usuario a:hover{
+  text-decoration: underline; 
+  color: #FFFFE0;
+  text-decoration: none;
+}
+
+/* Contenido */
+.contenido{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Breakpoints menu principal */
+@media screen and (max-width: 1151px) {
+  .navegador{
+    display: none;
+  }
+
+  .principal{
+    display: block;
+  }
+
+  .navegadorResponsive{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row;
+    width: 100%;
+
+  }
+
+  .imagenNavR{
+    margin: 1rem 1rem 2rem 3rem; 
+  }
+
+  .navegadorResponsive{
+    padding: 1rem 1rem;
+  }
+
+  .contenido{
+    margin: 0 auto;
+  }
+
+}
+
+@media screen and (max-width: 494px) {
+  .contenido{
+    margin: 0;
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+.portada{
+    margin: 8rem 5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.textos{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.textos h1{
+    font-size: 10rem;
+    margin-bottom: 3rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.textos p{
+    margin-bottom: 13rem;
+}
+
+
+.botonera{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
+}
+
+.correoContacto{
+    margin-top: 6rem;
+    text-align: center;
+}
+
+.correoContacto span{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Breakpoints */
+@media screen and (max-width: 1316px) {
+    .textos h1{
+        font-size: 5rem;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .textos h1{
+        font-size: 3rem;
+    }
+
+    .botonera button{
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .textos h1{
+        font-size: 2rem;
+    }
+
+
+    .textos p{
+        font-size: 1rem;
+    }
+
+}

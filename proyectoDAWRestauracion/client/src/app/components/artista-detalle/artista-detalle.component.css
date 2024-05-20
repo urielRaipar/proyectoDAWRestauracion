@@ -1,0 +1,117 @@
+.cabeceraArt{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 2rem;
+    padding: 2rem 2rem;
+    margin: 2rem 2rem;
+}
+
+h1{
+    font-weight: bold;
+}
+
+.listarAlbunes ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    /* margin: 4rem 4rem; */
+}
+
+ul li{
+    margin: 3rem 3rem;
+}
+
+.fichas{
+    margin: 4rem 3rem;
+    height: 70%;
+    width: 100%;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.fichas img{
+    height: 70%;
+}
+
+.botonera{
+    display: flex;
+    margin-bottom: 2rem ;
+}
+
+.botonera button{
+    margin: 3rem 1rem;
+} 
+
+.botonera2{
+    display: flex;
+    margin-bottom: 3rem ;
+}
+
+.botonera2 button{
+    margin: 1rem 1rem;
+} 
+
+h5{
+    font-weight: bold;
+}
+
+/* Breakpoints */
+@media screen and (max-width: 818px) {
+    .cabeceraArt{
+        flex-direction: column;
+        margin-left: 12rem;
+    }
+
+    .cabeceraArt div{
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 652px) {
+    .cabeceraArt{
+        margin-left: 9rem;
+    }
+
+    ul li{
+        margin: 3rem 2rem;
+    }
+
+    .fichas{
+        margin: 4rem 2rem;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .cabeceraArt{
+        margin-left: 5rem;
+    }
+
+    ul li{
+        margin: 3rem 1rem;
+    }
+
+    .fichas{
+        margin: 4rem 1rem;
+    }
+}
+
+
+
+@media screen and (max-width: 425px) {
+    .cabeceraArt{
+        margin-left: 3rem;
+    }
+
+    ul li{
+        margin: 3rem 4px;
+    }
+
+    .fichas{
+        margin: 4rem 4px;
+    }
+
+}
+
+
